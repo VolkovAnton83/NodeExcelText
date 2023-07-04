@@ -1,3 +1,4 @@
 {
-    "ExcelFilesCatalog": "./ExcelFiles"
+    "ExcelFilesCatalog": "./ExcelFiles",
+    "ExcelTemplate": "ExcelTemplate.xlsx"
 }
