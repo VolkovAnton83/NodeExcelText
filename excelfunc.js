@@ -1,4 +1,4 @@
-//var excel = require('excel4node');
+var excel = require('excel4node');
 //ExcelJS for read? 2k packets. 
 
 module.exports = { CreateTestExcelFiles }
