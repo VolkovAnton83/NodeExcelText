@@ -1,5 +1,9 @@
-var excel = require('excel4node');
+const fs = require('fs');
+var writeexcel = require('excel4node');
+var readexcel = require('node-xlsx');
+const { exit } = require('process');
 //ExcelJS for read? 2k packets. 
+//node-xlsx 46 packets only
 
 module.exports = { CreateTestExcelFiles }
 
@@ -8,9 +12,14 @@ function CreateExcelList(wrkbook,wrksheetname) {
     worksheet.cell(1,1).string(Date.now().toString());
 }
 
-function CreateTestExcelFiles(FolderPath) {
+function CreateTestExcelFiles(FolderPath,TemplateName) {
     
-    var workbook = new excel.Workbook();
+    const workSheetsFromFile = readexcel.parse(FolderPath+"\\"+TemplateName);
+    console.log(typeof workSheetsFromFile);
+    console.log(JSON.stringify(workSheetsFromFile, null, 6));
+    return;
+    
+    var workbook = new writeexcel.Workbook();
     const t0 = performance.now();
     
     var curDate = new Date('01/01/2024 00:00:01');
