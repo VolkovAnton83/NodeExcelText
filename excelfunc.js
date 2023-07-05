@@ -1,7 +1,8 @@
 const fs = require('fs');
 var writeexcel = require('excel4node');
 var readexcel = require('node-xlsx');
-const { exit } = require('process');
+const path = require('node:path');
+
 //ExcelJS for read? 2k packets. 
 //node-xlsx 46 packets only
 
@@ -14,7 +15,7 @@ function CreateExcelList(wrkbook,wrksheetname) {
 
 function CreateTestExcelFiles(FolderPath,TemplateName) {
     
-    const workSheetsFromFile = readexcel.parse(FolderPath+"\\"+TemplateName);
+    const workSheetsFromFile = readexcel.parse(FolderPath+path.sep+TemplateName);
     console.log(typeof workSheetsFromFile);
     console.log(JSON.stringify(workSheetsFromFile, null, 6));
     return;
